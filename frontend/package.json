@@ -1,0 +1,23 @@
+{
+  "name": "auto-inviter-gui",
+  "version": "1.0.0",
+  "description": "Front End Application for the Auto Inviter Script",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koechian/QwetuAutomation.git"
+  },
+  "author": "Ian Koech",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/koechian/QwetuAutomation/issues"
+  },
+  "homepage": "https://github.com/koechian/QwetuAutomation#readme",
+  "dependencies": {
+    "electron": "^18.0.1",
+    "electron-reloader": "^1.2.3"
+  }
+}
