@@ -15,7 +15,8 @@ def connection_tester():
         date()
     except (req.ConnectionError, req.Timeout) as exception:
         logging.error("No internet connection.")
-        notify(" Invite Creation Failed. No internet connection.")
+        message="No internet connection.";
+        notify(message)
         exit()
 
 
@@ -54,11 +55,12 @@ def invite(token):
     with open("data.json", "r") as f:
         data = json.load(f)
 
-    inviteResponse = req.post(
-        url=data["target"]["invite"],
-        data=data["user_data"],
-        headers={"Authorization": "Bearer " + token},
-    )
+    for x in range(0,len(data["user_data"])):
+        inviteResponse = req.post(
+            url=data["target"]["invite"],
+            data=data["user_data"][str(x)],
+            headers={"Authorization": "Bearer " + token},
+        )
 
     if inviteResponse.status_code == 200:
         logging.info("Invite Success")
@@ -101,16 +103,18 @@ def date():
     formatted = x.strftime("%Y-%m-%d %H:%M:%S")
 
     try:
-        with open("data.json", "r+") as jsonFile:
-            data = json.load(jsonFile)
-            data["user_data"]["expected_at"] = formatted
-            jsonFile.seek(0)
-            json.dump(data, jsonFile)
-            jsonFile.truncate()
+        with open("data.json", "r+") as f:
+            data = json.load(f)
+            for x in range(0,len(data["user_data"])):
+                data["user_data"][str(x)]["expected_at"] = formatted
+                f.seek(0)
+                json.dump(data, f)
+                f.truncate()
     except:
         logging.debug(
-            "Login Failed. Could not find or open data file. Data file may be unreadable. (Date Function)"
+            "Login Failed. Could not find or open data file. Data file may be unreadable. (Date Function) Program Exited."
         )
+        exit()
 
     logging.info("Date set to: " + formatted + "\n" + "Invite function called")
     invite(login())

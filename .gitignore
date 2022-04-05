@@ -1,3 +1,4 @@
-Log/
 backup/
 frontend/node_modules/
+__pycache__/
+Log/
