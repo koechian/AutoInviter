@@ -7,8 +7,13 @@ const loadMainWindow = () => {
         height: 800,
         webPreferences: {
             nodeIntegration: true
-        }
+        },
+        title:false
     });
 
     mainWindow.loadFile(path.join(__dirname, "src/index.html"));
 }
+const titleBar=()={
+    
+}
+app.on('ready',loadMainWindow);

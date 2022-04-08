@@ -1,25 +1,25 @@
 {
-    "credentials": {
+    "backup credentials": {
         "username": "rkiilumuema@gmail.com",
         "password": "Ryankiilumuema"
     },
-    "backup credentials": {
+    "credentials": {
         "username": "kariukibrian090@gmail.com",
         "password": "007@MishJB"
     },
     "user_data": {
         "0": {
-            "name": "Koech Ian",
-            "email": "ian.koech@strathmore.edu",
-            "phone": "+254799038737",
-            "expected_at": "2022-04-06 08:00:00",
-            "dialcode": "+254"
-        },
-        "1": {
             "name": "Sean Kinuthia",
             "email": "sean.kinuthia@strathmore.edu",
             "phone": "+254758509905",
-            "expected_at": "2022-04-06 08:00:00",
+            "expected_at": "2022-04-09 08:00:00",
+            "dialcode": "+254"
+        },
+        "1": {
+            "name": "Ian Koech",
+            "email": "ian.koech@strathmore.edu",
+            "phone": "+254799038737",
+            "expected_at": "2022-04-09 08:00:00",
             "dialcode": "+254"
         }
     },
