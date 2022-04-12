@@ -1,0 +1,290 @@
+@font-face {
+    font-family: Ubuntu;
+    src: url(Fonts/Ubuntu-Regular.ttf);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: none;
+    font-family: Ubuntu;
+    color: #D3D3D3;
+}
+
+html {
+    width: 1200px;
+    height: 700px;
+    outline: red dotted 2px;
+    background-color: #161A1D;
+}
+
+header {
+    height: 40px;
+    width: 100%;
+    background-color: #0B090A;
+    display: flex;
+    align-items: center;
+    padding-left: 90%;
+}
+
+.buttons {
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    margin-left: 15px;
+}
+
+.close {
+    background-color: #F05858;
+}
+
+.close:hover {
+    background-color: #ee1919;
+    cursor: pointer;
+}
+
+.maximise {
+    background-color: #808080;
+}
+
+.maximise:hover {
+    cursor: not-allowed;
+}
+
+.minimise {
+    background-color: #C2C536;
+}
+
+.minimise:hover {
+    background-color: #f9fd05;
+    cursor: pointer;
+}
+
+.logo-bar {
+    height: 50px;
+    background-color: #0B090A;
+    width: 100%;
+    padding-left: 20px;
+    padding-bottom: 8px;
+    display: flex;
+}
+
+.logo {
+    height: 40px;
+    width: 40px;
+    background-image: url('assets/custom.ico');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.title {
+    margin-left: 42%;
+    color: aliceblue;
+    font-size: 30px;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-container {
+    width: 1000px;
+    height: 500px;
+    border-radius: 10px;
+    background-color: #0B090A;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    padding: 50px;
+}
+
+.cards-parent {
+    width: 30%;
+    background-color: #101010;
+    margin-left: 20px;
+    padding: 30px;
+}
+
+.cards-parent h3 {
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: #161A1D;
+    border-radius: 10px;
+    height: 85px;
+    margin-bottom: 30px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.card-details {
+    width: 60%;
+    padding-top: 20px;
+}
+
+.card-details+div {
+    margin-left: 10px;
+    width: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-icons {
+    width: 48px;
+    height: 48px;
+}
+
+.card-icons:hover {
+    cursor: pointer;
+}
+
+.new-user {
+    fill: #C2C536;
+}
+
+.manual {
+    fill: #BA933D;
+}
+
+.logs {
+    fill: #3D8F7C;
+}
+
+.visitor-cards-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.visitor-icons {
+    width: 24px;
+    height: 19px;
+    margin-top: 5px;
+}
+
+.edit-visitor {
+    fill: #21A6D0;
+}
+
+.remove-visitor {
+    fill: #CF5129;
+}
+
+.visitor-details {
+    font-size: 12px;
+    color: #585858;
+    letter-spacing: 1px;
+}
+
+.info-card {
+    height: 92%;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.info-card-image-wrapper {
+    height: 50%;
+    width: 50%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 40px;
+}
+
+.card-details-info {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+}
+
+.user-edit-button {
+    border-radius: 10px;
+    height: 40px;
+    width: 150px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    background-color: #101010;
+    color: #b4b4b4;
+    border: none;
+    transition: ease 0.3s;
+}
+
+.user-edit-button:hover {
+    background-color: #0d1114;
+    cursor: pointer;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    position: fixed;
+    bottom: 0;
+    height: 40px;
+    background-color: #0B090A;
+    width: 700px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px 10px 0px 0px;
+}
+
+.attrib p {
+    padding-left: 20px;
+    font-size: 15px;
+    color: #252525;
+    font-style: italic;
+}
+
+.socials {
+    width: 250px;
+    height: 100%;
+    margin-left: 55%;
+    display: flex;
+    flex-direction: row;
+}
+
+.socials div {
+    height: 100%;
+    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icons {
+    width: 24px;
+    height: 24px;
+}
+
+.twitter {
+    fill: #6488BD;
+}
+
+.twitter:hover {
+    fill: #6493eb;
+}
+
+.github {
+    fill: #b4b4b4;
+}
+
+.github:hover {
+    fill: #5f9790;
+}
+
+.mail {
+    fill: #E5383B;
+}
+
+.mail:hover {
+    fill: #C2C536;
+}

@@ -1,19 +1,21 @@
-const { app, BrowserWindow } = require("electron");
-const path = require("path");
+const electron = require('electron');
+const url = require('url');
+const path = require('path');
+const { dirname } = require('path');
 
-const loadMainWindow = () => {
-    const mainWindow = new BrowserWindow({
-        width : 1200,
+const { app, BrowserWindow } = electron;
+
+let mainWindow;
+
+app.on('ready', function () {
+    mainWindow = new BrowserWindow({
+        width: 1300,
         height: 800,
-        webPreferences: {
-            nodeIntegration: true
-        },
-        title:false
+        resizable: false,
     });
-
-    mainWindow.loadFile(path.join(__dirname, "src/index.html"));
-}
-const titleBar=()={
-    
-}
-app.on('ready',loadMainWindow);
+    mainWindow.loadURL(url.format({
+        pathname: path.join(__dirname, 'src/landing.html'),
+        protocol: 'file',
+        slashes: true
+    }))
+})
