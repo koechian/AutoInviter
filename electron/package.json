@@ -1,0 +1,22 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "This is the front end of the AutoInviter Application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koechian/AutoInviter.git"
+  },
+  "author": "Koechian",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/koechian/AutoInviter/issues"
+  },
+  "homepage": "https://github.com/koechian/AutoInviter#readme",
+  "devDependencies": {
+    "electron": "^18.0.3"
+  }
+}
