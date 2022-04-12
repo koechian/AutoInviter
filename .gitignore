@@ -1,4 +1,4 @@
 backup/
-frontend/node_modules/
+electron/node_modules/
 __pycache__/
 Log/

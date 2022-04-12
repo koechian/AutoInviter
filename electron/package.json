@@ -18,5 +18,8 @@
   "homepage": "https://github.com/koechian/AutoInviter#readme",
   "devDependencies": {
     "electron": "^18.0.3"
+  },
+  "dependencies": {
+    "jquery": "^3.6.0"
   }
 }

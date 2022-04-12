@@ -24,7 +24,12 @@ header {
     background-color: #0B090A;
     display: flex;
     align-items: center;
-    padding-left: 90%;
+}
+
+#draggable {
+    -webkit-app-region: drag;
+    width: 90%;
+    height: 100%;
 }
 
 .buttons {

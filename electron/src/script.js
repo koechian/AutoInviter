@@ -1,15 +1,21 @@
-const electron = require('electron');
-const ipc = electron.ipcRenderer;
+const { ipcRenderer } = require('electron');
+const shell = require('electron').shell
 
+const links = document.querySelectorAll('a[href]')
 
-const closeButton = document.getElementById('closeButton');
+Array.prototype.forEach.call(links, function (link) {
+    const url = link.getAttribute('href')
+    if (url.indexOf('http') === 0) {
+        link.addEventListener('click', function (e) {
+            e.preventDefault()
+            shell.openExternal(url)
+        })
+    }
+})
 
-close.addEventListener('click', closeApp());
-
-function closeApp(e) {
-    e.preventDefault();
-
-    // ipc.send('closeApp');
-    console.log('Button')
-
-}
+document.querySelector('#closeButton').addEventListener('click', () => {
+    ipcRenderer.send('osEvents', 'close')
+})
+document.querySelector('#minimizeButton').addEventListener('click', () => {
+    ipcRenderer.send('osEvents', 'minimize')
+})

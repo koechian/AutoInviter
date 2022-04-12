@@ -10,17 +10,32 @@ let mainWindow;
 
 app.on('ready', function () {
     mainWindow = new BrowserWindow({
-        width: 1300,
-        height: 800,
+        width: 1200,
+        height: 700,
         resizable: false,
+        frame: false,
+        icon: path.join(__dirname, '/custom.ico'),
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+        },
     });
     mainWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'src/landing.html'),
         protocol: 'file',
-        slashes: true
+        slashes: true,
     }))
+
 })
 
-ipc.on('closeApp', function () {
-    app.quit()
+ipc.on('osEvents', (event, arg) => {
+    if (arg == 'close') {
+        app.quit();
+    } else {
+        if (arg == 'minimize') {
+            mainWindow.minimize();
+
+        }
+    }
 })
+
