@@ -15,7 +15,7 @@ def connection_tester():
         date()
     except (req.ConnectionError, req.Timeout) as exception:
         logging.error("No internet connection.")
-        message="No internet connection.";
+        message = "No internet connection."
         notify(message)
         exit()
 
@@ -55,7 +55,7 @@ def invite(token):
     with open("data.json", "r") as f:
         data = json.load(f)
 
-    for x in range(0,len(data["user_data"])):
+    for x in range(0, len(data["user_data"])):
         inviteResponse = req.post(
             url=data["target"]["invite"],
             data=data["user_data"][str(x)],
@@ -105,7 +105,7 @@ def date():
     try:
         with open("data.json", "r+") as f:
             data = json.load(f)
-            for x in range(0,len(data["user_data"])):
+            for x in range(0, len(data["user_data"])):
                 data["user_data"][str(x)]["expected_at"] = formatted
                 f.seek(0)
                 json.dump(data, f)

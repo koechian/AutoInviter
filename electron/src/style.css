@@ -77,7 +77,7 @@ header {
 .logo {
     height: 40px;
     width: 40px;
-    background-image: url('assets/custom.ico');
+    background-image: url('Assets/custom.ico');
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -127,6 +127,11 @@ header {
     padding: 10px;
     display: flex;
     flex-direction: row;
+    transition: ease-in-out 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.04);
 }
 
 .card-details {
@@ -292,4 +297,8 @@ footer {
 
 .mail:hover {
     fill: #C2C536;
+}
+.small-text{
+    font-size: 9px;
+    color: #999999;
 }

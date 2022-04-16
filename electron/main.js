@@ -5,6 +5,9 @@ const { dirname } = require('path');
 const { CLIENT_RENEG_LIMIT } = require('tls');
 const ipc = electron.ipcMain;
 const { app, BrowserWindow } = electron;
+const shell = electron.shell;
+const data=require('./data.json');
+const { ipcMain } = require('electron');
 
 let mainWindow;
 
@@ -37,5 +40,19 @@ ipc.on('osEvents', (event, arg) => {
 
         }
     }
+})
+
+ipc.on('fileIO', (event, arg) => {
+    if (arg == 'openManual') {
+        shell.openFile('../README.md');
+    } else {
+        if (arg == 'openLog') {
+            shell.openPath('C:\\Users\\ianov\\OneDrive\\Documents\\AutoInviter\\Log')
+        }
+    }
+})
+ipc.on('fetch', (event, arg) => {
+    console.log('data sent')
+    mainWindow.webContents.send('data',data)
 })
 
