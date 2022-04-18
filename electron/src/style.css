@@ -306,6 +306,7 @@ footer {
 }
 .scrollable {
   overflow-y: auto;
+  overflow-x: hidden;
 }
 ::-webkit-scrollbar {
   width: 10px;
@@ -322,8 +323,4 @@ footer {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
-}
-.visitor-data {
-  outline: red dotted 2px;
-  width: 100%;
 }
