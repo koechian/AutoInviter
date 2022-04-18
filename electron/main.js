@@ -16,6 +16,7 @@ app.on('ready', function () {
         width: 1200,
         height: 700,
         resizable: false,
+        transparent:true,
         frame: false,
         icon: path.join(__dirname, '/custom.ico'),
         webPreferences: {
