@@ -8,6 +8,7 @@ const { app, BrowserWindow } = electron;
 const shell = electron.shell;
 const data = require("./data.json");
 const { ipcMain } = require("electron");
+const { default: electronReload } = require("electron-reload");
 
 let mainWindow;
 
