@@ -3,7 +3,8 @@ import json
 import os
 import datetime
 from warnings import catch_warnings
-from win10toast import ToastNotifier
+# from win10toast import ToastNotifier
+import notify2
 import logging
 from calendar import monthrange
 
@@ -11,10 +12,10 @@ from calendar import monthrange
 def connection_tester():
     try:
         req.get("http://www.google.com", timeout=5)
-        logging.info("Internet Connection is Available")
+        logger("Internet Connection is Available")
         date()
     except (req.ConnectionError, req.Timeout) as exception:
-        logging.error("No internet connection.")
+        logger("No internet connection.")
         message = "No internet connection."
         notify(message)
         exit()
@@ -31,7 +32,7 @@ def login():
             }
             response = req.post(url, data=payload)
     except:
-        logging.debug(
+        logger(
             "Login Failed. Could not find or open data file. Data file may be unreadable.(Login Function)"
         )
 
@@ -44,10 +45,10 @@ def login():
     token = data["data"]["token"]
 
     if token:
-        logging.info("Login Success")
+        logger("Login Success")
         return token
     else:
-        logging.debug("Login Failed")
+        logger("Login Failed")
         exit()
 
 
@@ -63,23 +64,23 @@ def invite(token):
         )
 
     if inviteResponse.status_code == 200:
-        logging.info("Invite Success")
+        logger("Invite Success")
         logout()
     else:
-        logging.debug("Invite Failed. Most likely server side issue.")
+        logger("Invite Failed. Most likely server side issue.")
         logout()
 
 
 def notify(message):
-    n = ToastNotifier()
+    icon_path = "/home/koechian/Documents/AutoInviter/Assets/custom.ico"
+    notify2.init('Auto Inviter Notification')
 
-    n.show_toast(
-        "Auto Inviter",
-        message,
-        duration=10,
-        icon_path="Assets/custom.ico",
-        threaded=True,
-    )
+    n = notify2.Notification("Auto Inviter",message, icon = icon_path)
+
+    n.set_urgency(notify2.URGENCY_NORMAL)
+        
+    n.set_timeout(1000)
+    n.show()
 
 
 def date():
@@ -111,12 +112,12 @@ def date():
                 json.dump(data, f)
                 f.truncate()
     except:
-        logging.debug(
+        logger(
             "Login Failed. Could not find or open data file. Data file may be unreadable. (Date Function) Program Exited."
         )
         exit()
 
-    logging.info("Date set to: " + formatted + "\n" + "Invite function called")
+    logger("Date set to: " + formatted + "\n" + "Invite function called")
     invite(login())
 
 
@@ -128,7 +129,7 @@ def logout():
         with open("login.json", "r") as f:
             data = json.load(f)
     except:
-        logging.error("Login File could not be accssed.")
+        logger("Login File could not be accssed.")
 
     token = data["data"]["token"]
 
@@ -142,21 +143,22 @@ def logout():
         message = "Invite Created"
 
     else:
-        logging.error(response.text)
+        logger(response.text)
 
     notify(message)
 
-    logging.info("Program Executed Successfully")
+    logger("Program Executed Successfully")
     exit()
 
 
 file = "data.json"
 
-LOG_FILENAME = datetime.datetime.now().strftime("Log/%d_%m_%Y.log")
+def logger(message):
+    # LOG_FILENAME = datetime.datetime.now().strftime("Log/%d_%m_%Y.log")
 
-for handler in logging.root.handlers[:]:
-    logging.root.removeHandler(handler)
+    logging.basicConfig(filename='ai_log', level=logging.INFO)
+    log=logging.getLogger('ai-logger')
+    log.info(message)
 
-logging.basicConfig(filename=LOG_FILENAME, level=logging.DEBUG)
 
 connection_tester()
