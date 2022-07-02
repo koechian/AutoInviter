@@ -1,4 +1,3 @@
-ancs4linux @ file:///home/koechian/ancs4linux
 bcc==0.18.0
 beautifulsoup4==4.10.0
 blinker==1.4
