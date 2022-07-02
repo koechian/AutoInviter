@@ -1,11 +1,24 @@
-import logging
-import datetime
+# #!/usr/bin/env python3
+# #-*- coding: utf-8 -*-
 
-def log(message):
-    
-    logging.basicConfig(filename=''+datetime.datetime.now().strftime("Log/%d_%m_%Y.log"),level=logging.INFO)
-    logger=logging.getLogger('ai-logger')
-    logger.info(message)
+import notify2
 
 
-log('ian')
+def notify(message):
+    icon_path = "/home/koechian/Documents/AutoInviter/Assets/custom.ico"
+    notify2.init('Auto Inviter Notification')
+
+    n = notify2.Notification("Tester",message, icon = icon_path)
+
+    n.set_urgency(notify2.URGENCY_NORMAL)
+        
+    n.set_timeout(1000)
+    n.show()
+
+notify('HELLO WORLD')
+
+f = open("demofile2.txt", "a")
+f.write("Now the file has more content!")
+f.close()
+
+
