@@ -7,7 +7,7 @@ import datetime
 from warnings import catch_warnings
 
 # from win10toast import ToastNotifier
-import notify2
+# import notify2
 import logging
 from calendar import monthrange
 
@@ -20,7 +20,6 @@ def connection_tester():
     except (req.ConnectionError, req.Timeout) as exception:
         logger("No internet connection.")
         message = "No internet connection."
-        notify(message)
         exit()
 
 
@@ -72,18 +71,6 @@ def invite(token):
     else:
         logger("Invite Failed. Most likely server side issue.")
         logout()
-
-
-def notify(message):
-    icon_path = "/home/koechian/Documents/AutoInviter/Assets/custom.ico"
-    notify2.init("Auto Inviter Notification")
-
-    n = notify2.Notification("Auto Inviter", message, icon=icon_path)
-
-    n.set_urgency(notify2.URGENCY_NORMAL)
-
-    n.set_timeout(1000)
-    n.show()
 
 
 def date():
@@ -148,8 +135,6 @@ def logout():
     else:
         logger(response.text)
 
-    notify(message)
-
     logger("Program Executed Successfully")
     exit()
 
@@ -165,4 +150,5 @@ def logger(message):
     log.info(message)
 
 
+os.chdir("/home/koechian/Documents/AutoInviter")
 connection_tester()
